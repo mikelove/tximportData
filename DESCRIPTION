@@ -1,0 +1,8 @@
+Package: tximportData
+Title: tximportData
+Version: 0.1
+Date: 2015-11-18
+Author: Michael Love
+Maintainer: Michael Love <mlove@jimmy.harvard.edu>
+Description: txImportData
+License: GPL-2
