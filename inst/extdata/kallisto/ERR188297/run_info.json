@@ -1,0 +1,9 @@
+{
+	"n_targets": 48009,
+	"n_bootstraps": 0,
+	"n_processed": 25288232,
+	"kallisto_version": "0.42.4",
+	"index_version": 10,
+	"start_time": "Sun Jan  3 08:57:21 2016",
+	"call": "/n/irizarryfs01/bin/kallisto_linux-v0.42.4/kallisto quant --bias -i kallisto_0.42.4/index -o kallisto_0.42.4/ERR188297 /n/irizarryfs01/mlove/geuvadis/fastq/ERR188297_1.fastq.gz /n/irizarryfs01/mlove/geuvadis/fastq/ERR188297_2.fastq.gz"
+}
