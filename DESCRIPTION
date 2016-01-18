@@ -1,7 +1,7 @@
 Package: tximportData
 Title: tximportData
-Version: 0.1
-Date: 2015-11-18
+Version: 0.1.1
+Date: 2016-01-18
 Author: Michael Love
 Maintainer: Michael Love <mlove@jimmy.harvard.edu>
 Description: txImportData
