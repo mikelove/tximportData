@@ -5,5 +5,5 @@
 	"kallisto_version": "0.42.4",
 	"index_version": 10,
 	"start_time": "Sun Jan  3 09:08:05 2016",
-	"call": "/n/irizarryfs01/bin/kallisto_linux-v0.42.4/kallisto quant --bias -i kallisto_0.42.4/index -o kallisto_0.42.4/ERR188356 /n/irizarryfs01/mlove/geuvadis/fastq/ERR188356_1.fastq.gz /n/irizarryfs01/mlove/geuvadis/fastq/ERR188356_2.fastq.gz"
+	"call": "kallisto quant --bias -i kallisto_0.42.4/index -o kallisto_0.42.4/ERR188356 fastq/ERR188356_1.fastq.gz fastq/ERR188356_2.fastq.gz"
 }
