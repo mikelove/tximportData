@@ -1,0 +1,129 @@
+<!--
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{Sample output files for tximport}
+-->
+
+# Sample output files for tximport
+
+This data package provides a set of output files from running a number
+of various transcript abundance quantifiers on 6 samples from the
+[GEUVADIS Project](http://www.geuvadis.org/web/geuvadis). The
+files are contained in the `inst/extdata` directory.
+
+A citation for the GEUVADIS Project is:
+
+> Lappalainen, et al., "Transcriptome and genome sequencing uncovers
+> functional variation in humans", Nature 501, 506–511 (26 September
+> 2013) [doi:10.1038/nature12531](http://dx.doi.org/10.1038/nature12531).
+
+The purpose of this vignette is to detail which versions of software
+were run, and exactly what calls were made.
+
+# Sample information and quantification files
+
+A small file, `samples.txt` is included in the `inst/extdata` directory:
+
+```{r}
+dir <- system.file("extdata", package="tximportData")
+samples <- read.table(file.path(dir,"samples.txt"), header=TRUE)
+samples
+```
+
+Further details can be found in a more extended table:
+
+```{r}
+samples.ext <- read.delim(file.path(dir,"samples_extended.txt"), header=TRUE)
+colnames(samples.ext)
+```
+
+The quantification outputs themselves can be found in sub-directories:
+
+```{r}
+list.files(dir)
+list.files(file.path(dir,"cufflinks"))
+list.files(file.path(dir,"rsem","ERR188021"))
+list.files(file.path(dir,"kallisto","ERR188021"))
+list.files(file.path(dir,"salmon","ERR188021"))
+list.files(file.path(dir,"sailfish","ERR188021"))
+```
+
+# Genome and gene annotation file
+
+The human genome and annotations were downloaded from
+[Illumina iGenomes](https://support.illumina.com/sequencing/sequencing_software/igenome.html)
+for the UCSC hg19 version. The human genome FASTA file used was in the
+`Sequence/WholeGenomeFasta` directory and the gene annotation GTF file used
+was the `genes.gtf` file in the `Annotation/Genes` directory. This GTF
+file contains RefSeq transcript IDs and UCSC gene names. The
+`Annotation` directory contained a `README.txt` file with the text:
+
+> The contents of the annotation directories were downloaded from UCSC
+> on: June 02, 2014.
+
+The `genes.gtf` file was filtered to include only chromosomes
+1-22, X, Y, and M.
+
+# Cufflinks
+
+Tophat2 version 2.0.11 was run with the call:
+
+```
+tophat -p 20 -o tophat_out/$f genome fastq/$f\_1.fastq.gz fastq/$f\_2.fastq.gz;
+```
+
+Cufflinks version 2.2.1 was run with the call:
+
+```
+cuffquant -p 40 -b $GENO -o cufflinks/$f genes.gtf tophat_out/$f/accepted_hits.bam;
+```
+
+Cuffnorm was run with the call:
+
+```
+cuffnorm genes.gtf -o cufflinks/ \
+cufflinks/ERR188297/abundances.cxb \
+cufflinks/ERR188088/abundances.cxb \
+cufflinks/ERR188329/abundances.cxb \
+cufflinks/ERR188288/abundances.cxb \
+cufflinks/ERR188021/abundances.cxb \
+cufflinks/ERR188356/abundances.cxb 
+```
+
+# RSEM
+
+RSEM version 1.2.11 was run with the call:
+
+```
+rsem-calculate-expression -p 20 --no-bam-output --paired-end <(zcat fastq/$f\_1.fastq.gz) <(zcat fastq/$f\_2.fastq.gz) rsem/index rsem/$f/$f
+```
+
+# kallisto
+
+kallisto version 0.42.4 was run with the call:
+
+```
+kallisto quant --bias -i kallisto_0.42.4/index -o kallisto_0.42.4/$f fastq/$f\_1.fastq.gz fastq/$f\_2.fastq.gz
+```
+
+# Salmon
+
+Salmon version 0.6.0 was run with the call:
+
+```
+$salmon quant -p 10 --biasCorrect -i salmon_0.6.0/index -l IU -1 <(zcat fastq/$f\_1.fastq.gz) -2 <(zcat fastq/$f\_2.fastq.gz) -o salmon_0.6.0/$f
+```
+
+# Sailfish
+
+Sailfish version 0.9.0 was run with the call:
+
+```
+sailfish quant -p 10 --biasCorrect -i sailfish_0.9.0/index -l IU -1 <(zcat fastq/$f\_1.fastq.gz) -2 <(zcat fastq/$f\_2.fastq.gz) -o sailfish_0.9.0/$f
+```
+
+# Session info
+
+```{r}
+sessionInfo()
+```
+
