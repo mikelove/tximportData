@@ -9,7 +9,6 @@ Description: This package provides the output of running various
   RSEM, kallisto, Salmon and Sailfish. For details on version
   numbers, sample information, and details on calls, see the
   package vignette.
-biocViews: ExperimentData, SequencingData, RNASeqData
 License: GPL (>= 2)
 Suggests: knitr
 VignetteBuilder: knitr
