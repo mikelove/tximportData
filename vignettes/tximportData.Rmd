@@ -13,7 +13,7 @@ files are contained in the `inst/extdata` directory.
 A citation for the GEUVADIS Project is:
 
 > Lappalainen, et al., "Transcriptome and genome sequencing uncovers
-> functional variation in humans", Nature 501, 506–511 (26 September
+> functional variation in humans", Nature 501, 506-511 (26 September
 > 2013) [doi:10.1038/nature12531](http://dx.doi.org/10.1038/nature12531).
 
 The purpose of this vignette is to detail which versions of software
