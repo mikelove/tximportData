@@ -1,9 +1,8 @@
 Package: tximportData
 Title: tximportData
-Version: 0.1.2
-Date: 2016-01-29
+Version: 0.99.0
 Author: Michael Love
-Maintainer: Michael Love <mlove@jimmy.harvard.edu>
+Maintainer: Michael Love <michaelisaiahlove@gmail.com>
 Description: This package provides the output of running various
   transcript abundance quantifiers on a set of 6 RNA-seq samples
   from the GEUVADIS project. The quantifiers were Cufflinks,
@@ -11,6 +10,6 @@ Description: This package provides the output of running various
   numbers, sample information, and details on calls, see the
   package vignette.
 biocViews: ExperimentData, SequencingData, RNASeqData
-License: GPL-2
+License: GPL (>= 2)
 Suggests: knitr
 VignetteBuilder: knitr
