@@ -1,3 +1,5 @@
+# THIS REPO IS NOT CURRENT, USE BIOC
+
 # tximportData
 
 This packages provides output files from common transcript estimation
